@@ -1,5 +1,5 @@
 {
-  "name": "Test Now/Next App",
+  "name": "test-now-next-app",
   "scripts": {
     "dev": "next",
     "build": "next build",
