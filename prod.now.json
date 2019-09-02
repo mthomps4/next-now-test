@@ -5,8 +5,5 @@
   "env": {
     "APP_ENV": "PRODUCTION",
     "DB_URL": "@db_url"
-  },
-  "github": {
-    "autoAlias": false
   }
 }
