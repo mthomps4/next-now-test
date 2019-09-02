@@ -1,11 +1,13 @@
 {
-  "name": "Staging Setup",
+  "name": "next-now-test",
   "version": 2,
-  "env": {
-    "APP_ENV": "STAGING",
-    "DB_URL": "@staging_db_url"
+  "build": {
+    "env": {
+      "APP_ENV": "STAGING",
+      "DB_URL": "@staging_db_url"
+    }
   },
-  "buildEnv": {
+  "env": {
     "APP_ENV": "STAGING",
     "DB_URL": "@staging_db_url"
   }
