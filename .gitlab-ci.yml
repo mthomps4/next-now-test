@@ -15,6 +15,7 @@ run-unit-test:
 deploy-staging:
   stage: deploy
   script:
+    - echo token $NOW_TOKEN
     - yarn deploy:staging:ci
   only:
     - staging
