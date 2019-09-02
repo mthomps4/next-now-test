@@ -6,7 +6,7 @@
     "start": "next start",
     "test": "jest",
     "deploy:staging:ci": "now -A now.json --target=staging --token=$NOW_TOKEN --scope=mthomps4",
-    "deploy:prod:ci": "now -A prod.now.json --target=prod --token=$NOW_TOKEN --scope=mthomps4",
+    "deploy:prod:ci": "now -A prod.now.json --target=production --token=$NOW_TOKEN --scope=mthomps4",
     "deploy:staging": "now -A now.json --scope=mthomps4",
     "deploy:prod": "now -A prod.now.json --target=production --scope=mthomps4"
   },
