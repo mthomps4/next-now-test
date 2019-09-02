@@ -15,13 +15,35 @@ const Home = () => {
     getDate();
   }, []);
 
+  const [appEnv, setAppEnv] = useState(null);
+
+  useEffect(() => {
+    async function getDate() {
+      const res = await fetch('/api/env');
+      const { appEnv } = await res.json();
+      setAppEnv(appEnv);
+    }
+    getDate();
+  }, []);
+
+  const [dbUrl, setDbUrl] = useState(null);
+
+  useEffect(() => {
+    async function getDate() {
+      const res = await fetch('/api/dbUrl');
+      const dbUrl = await res.json();
+      setDbUrl(dbUrl);
+    }
+    getDate();
+  }, []);
+
   return (
     <div>
       <Head title="Home" />
       <Nav />
 
       <div className="hero">
-        <h1 className="title">Welcome to Next!</h1>
+        <h1 className="title">Welcome to {appEnv}!</h1>
         <p className="description">
           To get started, edit the <code>pages/index.js</code> or <code>pages/api/date.js</code> files, then save to
           reload.

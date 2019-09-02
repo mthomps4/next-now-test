@@ -1,0 +1,12 @@
+{
+  "name": "Staging Setup",
+  "version": 2,
+  "env": {
+    "APP_ENV": "PRODUCTION",
+    "DB_URL": "@db_url"
+  },
+  "buildEnv": {
+    "APP_ENV": "PRODUCTION",
+    "DB_URL": "@db_url"
+  }
+}
