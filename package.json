@@ -3,7 +3,10 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "deploy:staging": "now -A now.json --target=staging",
+    "deploy:prod": "now -A prod.now.json --target=production"
   },
   "dependencies": {
     "next": "^9.0.2",
@@ -15,9 +18,13 @@
     "node": "10.x"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.3.3",
     "@now/node": "^0.12.5",
+    "@types/jest": "^24.0.18",
     "@types/styled-components": "^4.1.18",
     "babel-plugin-styled-components": "^1.10.6",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   }
 }

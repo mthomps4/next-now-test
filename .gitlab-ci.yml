@@ -1,0 +1,27 @@
+image: node:10.3.0
+
+stages:
+  - test
+  - deploy
+
+before_script:
+  - yarn
+
+run-unit-test:
+  stage: test
+  script:
+    - yarn test
+
+deploy-staging:
+  stage: deploy
+  script:
+    - yarn deploy:staging
+  only:
+    - staging
+
+deploy-production:
+  stage: deploy
+  script:
+    - yarn deploy:prod
+  only:
+    - master
