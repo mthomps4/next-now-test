@@ -5,5 +5,8 @@
   "env": {
     "APP_ENV": "STAGING",
     "DB_URL": "@staging_db_url"
+  },
+  "github": {
+    "autoAlias": false
   }
 }
