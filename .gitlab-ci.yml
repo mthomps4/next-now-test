@@ -26,4 +26,4 @@ deploy-production:
     - yarn deploy:prod:ci
   only:
     - master
-    - merge_requestsQ
+    - merge_requests
