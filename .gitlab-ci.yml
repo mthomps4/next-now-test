@@ -15,13 +15,13 @@ run-unit-test:
 deploy-staging:
   stage: deploy
   script:
-    - yarn deploy:staging
+    - yarn deploy:staging:ci
   only:
     - staging
 
 deploy-production:
   stage: deploy
   script:
-    - yarn deploy:prod
+    - yarn deploy:prod:ci
   only:
     - master
