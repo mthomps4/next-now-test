@@ -11,6 +11,8 @@ run-unit-test:
   stage: test
   script:
     - yarn test
+  only:
+    - merge_requests
 
 deploy-staging:
   stage: deploy
