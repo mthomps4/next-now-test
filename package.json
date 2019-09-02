@@ -5,11 +5,14 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "deploy:staging": "now -A now.json --target=staging",
-    "deploy:prod": "now -A prod.now.json --target=production"
+    "deploy:staging:ci": "now -A now.json --target=staging --token=$NOW_TOKEN --scope=mthomps4",
+    "deploy:prod:ci": "now -A prod.now.json --target=prod --token=$NOW_TOKEN --scope=mthomps4",
+    "deploy:staging": "now -A now.json --scope=mthomps4",
+    "deploy:prod": "now -A prod.now.json --target=production --scope=mthomps4"
   },
   "dependencies": {
     "next": "^9.0.2",
+    "now": "^16.1.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.3.2"
