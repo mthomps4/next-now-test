@@ -1,6 +1,7 @@
 {
-  "name": "PROD Setup",
+  "name": "next-now-test",
   "version": 2,
+  "alias": ["production-next-now-test.now.sh"],
   "env": {
     "APP_ENV": "PRODUCTION",
     "DB_URL": "@db_url"
