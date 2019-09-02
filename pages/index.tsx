@@ -19,7 +19,7 @@ const Home = () => {
 
   useEffect(() => {
     async function getDate() {
-      const res = await fetch('/api/env');
+      const res = await fetch('/api/appEnv');
       const { appEnv } = await res.json();
       setAppEnv(appEnv);
     }
