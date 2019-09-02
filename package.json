@@ -5,10 +5,10 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "deploy:staging:ci": "echo $NOW_TOKEN && now -A now.json --target=staging --token=$NOW_TOKEN",
-    "deploy:prod:ci": "now -A prod.now.json --target=production --token=$NOW_TOKEN",
-    "deploy:staging": "now -A now.json --target=staging",
-    "deploy:prod": "now -A prod.now.json --target=production"
+    "deploy:staging:ci": "now -A now.json --target=staging --token=$NOW_TOKEN --scope=mthomps4",
+    "deploy:prod:ci": "now -A prod.now.json --target=production --token=$NOW_TOKEN --scope=mthomps4",
+    "deploy:staging": "now -A now.json --target=staging --scope=mthomps4",
+    "deploy:prod": "now -A prod.now.json --target=production --scope=mthomps4"
   },
   "dependencies": {
     "next": "^9.0.2",
