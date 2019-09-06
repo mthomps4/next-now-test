@@ -4,14 +4,14 @@ stages:
   - test
   - deploy
 
+before_script:
+  - yarn
+
 # Cache modules in between jobs
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
-
-before_script:
-  - yarn
 
 run-unit-test:
   stage: test
