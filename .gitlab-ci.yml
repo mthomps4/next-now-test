@@ -24,6 +24,7 @@ deploy-staging:
     - yarn deploy:staging:ci
   only:
     - staging
+    - merge_requests
 
 deploy-production:
   stage: deploy
@@ -31,3 +32,4 @@ deploy-production:
     - yarn deploy:prod:ci
   only:
     - master
+    - merge_requests
