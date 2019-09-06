@@ -1,6 +1,7 @@
 {
   "name": "next-now-test",
   "version": 2,
+  "alias": ["staging-next-now-test.now.sh"],
   "env": {
     "APP_ENV": "STAGING",
     "DB_URL": "@staging_db_url"
