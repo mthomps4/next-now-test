@@ -17,8 +17,6 @@ run-unit-test:
   stage: test
   script:
     - yarn test
-  only:
-    - pushes
 
 deploy-staging:
   stage: deploy
