@@ -2,7 +2,7 @@
   "name": "next-now-test",
   "version": 2,
   "env": {
-    "APP_ENV": "STAGING",
-    "DB_URL": "@staging_db_url"
+    "APP_ENV": "DEVELOPMENT",
+    "DB_URL": "@development_db_url"
   }
 }

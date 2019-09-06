@@ -7,6 +7,12 @@ stages:
 before_script:
   - yarn
 
+# Cache modules in between jobs
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
 run-unit-test:
   stage: test
   script:
@@ -18,6 +24,7 @@ deploy-staging:
     - yarn deploy:staging:ci
   only:
     - staging
+    - merge_requests
 
 deploy-production:
   stage: deploy
@@ -25,3 +32,4 @@ deploy-production:
     - yarn deploy:prod:ci
   only:
     - master
+    - merge_requests
