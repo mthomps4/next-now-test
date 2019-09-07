@@ -1,10 +1,10 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class AddUserTable1567878405562 implements MigrationInterface {
+export class AddUserEnity1567883317169 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<any> {
         await queryRunner.query(`CREATE TYPE "user_role_enum" AS ENUM('EDITOR', 'SPEAKER', 'ADMIN')`);
-        await queryRunner.query(`CREATE TABLE "user" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "firstName" character varying, "lastName" character varying, "email" character varying NOT NULL, "phone" character varying, "password" character varying NOT NULL, "role" "user_role_enum" NOT NULL DEFAULT 'SPEAKER', "createdAt" TIMESTAMP NOT NULL DEFAULT now(), "updatedAt" TIMESTAMP NOT NULL DEFAULT now(), CONSTRAINT "PK_cace4a159ff9f2512dd42373760" PRIMARY KEY ("id"))`);
+        await queryRunner.query(`CREATE TABLE "user" ("id" uuid NOT NULL, "firstName" character varying, "lastName" character varying, "email" character varying NOT NULL, "phone" character varying, "password" character varying NOT NULL, "role" "user_role_enum" NOT NULL DEFAULT 'SPEAKER', "createdAt" TIMESTAMP NOT NULL DEFAULT now(), "updatedAt" TIMESTAMP NOT NULL DEFAULT now(), CONSTRAINT "PK_cace4a159ff9f2512dd42373760" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE UNIQUE INDEX "IDX_e12875dfb3b1d92d7d7c5377e2" ON "user" ("email") `);
     }
 

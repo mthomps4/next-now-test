@@ -8,7 +8,7 @@ export const ALLOWED_ROLES = {
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn({ type: 'uuid' })
   public id!: string;
 
   @Column({ type: 'varchar', nullable: true })

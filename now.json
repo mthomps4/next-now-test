@@ -3,6 +3,17 @@
   "version": 2,
   "env": {
     "APP_ENV": "DEVELOPMENT",
-    "DB_URL": "@development_db_url"
+    // "TYPEORM_CONNECTION": "postgres",
+    // "TYPEORM_HOST": "localhost",
+    // "TYPEORM_USERNAME": "postgres",
+    // "TYPEORM_PASSWORD": "postgres",
+    // "TYPEORM_DATABASE": "next_now_test_dev",
+    // "TYPEORM_PORT": 5432,
+    // "TYPEORM_SYNCHRONIZE": false,
+    // "TYPEORM_LOGGING": true,
+    // "TYPEORM_ENTITIES": "entities/**/*.ts",
+    // "TYPEORM_MIGRATIONS": "migrations/**/*.ts",
+    // "TYPEORM_ENTITIES_DIR": "entities",
+    // "TYPEORM_MIGRATIONS_DIR": "migrations",
   }
 }

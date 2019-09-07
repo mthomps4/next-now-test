@@ -4,8 +4,8 @@ console.log('✅  Installing dependencies...');
 execSync('yarn');
 
 console.log('✅  Creating Databases...');
-execSync('createdb --owner=postgres next_now_test_dev');
-execSync('createdb --owner=postgres next_now_test_test');
+execSync('createdb --owner=postgres next_now_dev');
+execSync('createdb --owner=postgres next_now_test');
 
 // TODO: User seeds (DEV)
 
