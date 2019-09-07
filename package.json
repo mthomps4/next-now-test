@@ -5,6 +5,9 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
+    "lint": "yarn eslint . --ext .ts,.tsx",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+    "g:migration": "yarn typeorm migration:generate -n",
     "deploy:staging:ci": "now -A staging.now.json --target=staging --token=$NOW_TOKEN --scope=mthomps4  && now alias -A staging.now.json  --token=$NOW_TOKEN",
     "deploy:prod:ci": "now -A prod.now.json --target=production --token=$NOW_TOKEN --scope=mthomps4 && now alias -A prod.now.json  --token=$NOW_TOKEN",
     "deploy:staging": "now -A staging.now.json --target=staging --scope=mthomps4 && now alias -A staging.now.json",
@@ -13,9 +16,12 @@
   "dependencies": {
     "next": "^9.0.2",
     "now": "^16.1.2",
+    "pg": "^7.12.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.3.2"
+    "reflect-metadata": "^0.1.13",
+    "styled-components": "^4.3.2",
+    "typeorm": "^0.2.18"
   },
   "engines": {
     "node": "10.x"
@@ -24,10 +30,12 @@
     "@babel/preset-typescript": "^7.3.3",
     "@now/node": "^0.12.5",
     "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.4",
     "@types/styled-components": "^4.1.18",
     "babel-plugin-styled-components": "^1.10.6",
     "jest": "^24.9.0",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.3"
+    "ts-node": "^8.3.0",
+    "typescript": "^3.6.2"
   }
 }

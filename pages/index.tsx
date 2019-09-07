@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Head from '../components/head';
 import Nav from '../components/nav';
-
 const Home = () => {
   const [date, setDate] = useState(null);
 
