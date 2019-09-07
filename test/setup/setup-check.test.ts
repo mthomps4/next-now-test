@@ -5,7 +5,6 @@ test('Can import and run', () => {
 });
 
 test('Returns Correct Test Credentials', () => {
-  console.log(process.env.APP_ENV);
   const testDbPath = process.env.TYPEORM_DATABASE || 'NO ENV';
   const appEnv = process.env.APP_ENV || 'NO APP ENV FOUND';
 
