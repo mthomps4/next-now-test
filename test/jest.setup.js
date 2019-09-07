@@ -1,3 +1,3 @@
-// Use this file for global Jest setup
+const path = require('path');
 jest.setTimeout(30000);
-require('dotenv').config({ path: '../.env.test' });
+require('dotenv').config({ path: path.resolve(process.cwd(), '.env.test') });
