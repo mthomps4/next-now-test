@@ -5,9 +5,14 @@ test('Can import and run', () => {
 });
 
 test('Returns Correct Test Credentials', () => {
-  const testDbPath = process.env.TYPEORM_DATABASE || 'NO ENV';
+  const testDbName = process.env.TYPEORM_DATABASE || 'NO ENV';
   const appEnv = process.env.APP_ENV || 'NO APP ENV FOUND';
 
-  expect(appEnv).toEqual('LOCAL TESTING');
-  expect(testDbPath).toEqual('next_now_test_test');
+  if (appEnv === 'TESTING SERVER') {
+    expect(testDbName).toEqual('testing');
+  } else if (appEnv === 'LOCAL TESTING') {
+    expect(testDbName).toEqual('next_now_test');
+  } else {
+    throw new Error('TEST ENV FILE NOT SORUCED');
+  }
 });
