@@ -21,21 +21,21 @@ This repo is a working example of Now/Next at scale. Using GitLab (soon GitHub A
 
 ## Running Locally
 
-Pre Req: 
+**Pre Req**: 
 
 - Node v10.x
 - Yarn
 - Postgres (as of this writing 11.5)
 
-Global Installs: 
+**Global Installs**: 
 
 - `yarn add —global ts-node typescript now`
 
-**Now**: 
+**Now:
 
 This installs Nows cli tools. We will use these to login, add secrets (envs), and deploy our application manually if needed. 
 
-**ts-node and typescript**:
+**ts-node and typescript:
 
 Used in yarn scripts to run various commands with dotenv and TypeORM. Installing globally simplifies our yarn scripts, avoiding he need to dive into node_modules for each tool. 
 
@@ -66,8 +66,9 @@ All ENVs are kept within `.env/`
 There is an example file for each with a readme describing more in depth (TODO LINK HERE) 
 
 <details>
-Local Development 
 <summary>
+Local Development 
+</summary>
     Local DB: `now_next_dev`
 
     ENV: `.env/.env.local`
@@ -77,26 +78,26 @@ Local Development
     yarn scripts are also also set to point at this env for TypeORM helpers. 
 
     Example: `yarn db:migrate`
-</summary>
 </details>
 
 <details>
-Local Testing 
 <summary>
+Local Testing 
+</summary>
 
     Local DB: `next_now_test`
 
     ENV: `.env/.env.test.local`
 
     Ran with `yarn test` this will connect to your local DB. Jest is setup to run a setup test first to ensure you are connected to the right DB. Jest is also setup to run migrations and reset between each test file and run. 
-</summary>
 </details>
 
 Deployed Environments: 
 
 <details>
-Testing
 <summary>
+Testing
+</summary>
 
     DB: AWS RDS (testing)
 
@@ -109,13 +110,12 @@ Testing
     Similar to .test.local These ENVs are set to sync the DB by running migrations in between each test run.
 
     The env file itself allows for a quick reset should something land in a weird state with CI by running `yarn db:reset:testing`
-
-</summary>
 </details>
 
 <details>
-Development 
 <summary>
+Development 
+</summary>
 
     DB: AWS RDS (development) 
 
@@ -136,13 +136,12 @@ Development
     `yarn db:reset:dev`
 
     > “Hey, anyone using Dev? I need to test out this migration?”
-
-</summary>
 </details>
 
 <details>
-Staging
 <summary>
+Staging
+</summary>
 
     DB: AWS RDS (staging) 
 
@@ -160,12 +159,12 @@ Staging
 
     This Environment should be treated like a production environment -- reset only if something went horribly wrong.
     This will help catch any "Gotchas" before releasing in a similar fashion to Prod.
-</summary>
 </details>
 
 <details>
-Production
 <summary>
+Production
+</summary>
 
     DB: AWS RDS (prod) 
 
@@ -181,5 +180,4 @@ Production
 
     Prod is PROD! 
     If something is wrong here... You're probably reading the wrong document. Go put out some fires and squash some bugs...
-</summary>
 </details>
