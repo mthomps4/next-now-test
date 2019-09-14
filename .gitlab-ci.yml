@@ -1,6 +1,24 @@
 image: node:10.3.0
 
+services:
+  - postgres
+
+variables:
+  # Configure postgres service (https://hub.docker.com/_/postgres/)
+  POSTGRES_DB: $TYPEORM_DATABASE
+  POSTGRES_USER: $TYPEORM_USERNAME
+  POSTGRES_PASSWORD: $TYPEORM_PASSWORD
+
+connect:
+  stage: connect
+  image: postgres
+  script:
+    # official way to provide password to psql: http://www.postgresql.org/docs/9.3/static/libpq-envars.html
+    - export PGPASSWORD=$POSTGRES_PASSWORD
+    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
+
 stages:
+  - connect
   - test
   - deploy
 
@@ -21,7 +39,7 @@ run-unit-test:
 deploy-staging:
   stage: deploy
   script:
-    - yarn deploy:staging:ci
+    - yarn ci:deploy:staging
   only:
     - staging
     - merge_requests
@@ -29,7 +47,7 @@ deploy-staging:
 deploy-production:
   stage: deploy
   script:
-    - yarn deploy:prod:ci
+    - yarn ci:deploy:prod
   only:
     - master
     - merge_requests

@@ -1,19 +1,12 @@
 import 'reflect-metadata';
 import { Connection, createConnection, getConnectionOptions } from 'typeorm';
+import console = require('console');
 
 export const initializeDatabase = async (optionOverrides: Record<string, any> = {}): Promise<Connection> => {
   const connectionOptions = await getConnectionOptions();
-
   const options: any = {
     ...connectionOptions,
-    type: 'postgres',
-    /** If logging is enabled */
-    logging: true,
-    /** If the DB should auto-migrate */
-    synchronize: false,
-    /** Folder for migrations */
-    migrations: ['migrations/**/*.ts'],
-    entities: ['entities/**/*.ts']
+    ...optionOverrides
   };
 
   const connection = await createConnection(options);

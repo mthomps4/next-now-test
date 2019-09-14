@@ -1,6 +1,16 @@
-import { Column, CreateDateColumn, Entity, Index, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  BeforeInsert,
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
+} from 'typeorm';
+import { v4 } from 'uuid';
 
 export const ALLOWED_ROLES = {
+  VIEWER: 'VIEWER',
   EDITOR: 'EDITOR',
   SPEAKER: 'SPEAKER',
   ADMIN: 'ADMIN'
@@ -8,7 +18,7 @@ export const ALLOWED_ROLES = {
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn({ type: 'uuid' })
+  @PrimaryGeneratedColumn('uuid')
   public id!: string;
 
   @Column({ type: 'varchar', nullable: true })
@@ -24,9 +34,6 @@ export class User {
   @Column({ type: 'varchar', nullable: true })
   public phone!: string | null;
 
-  @Column()
-  public password!: string;
-
   @Column({
     type: 'enum',
     enum: Object.values(ALLOWED_ROLES),
@@ -39,4 +46,13 @@ export class User {
 
   @UpdateDateColumn()
   public updatedAt!: Date;
+
+  @BeforeInsert()
+  addId() {
+    this.id = v4();
+  }
+  // async hashPassword() {
+  //   this.password = await bcrypt.hash(this.password, 10);
+  // }
+  // await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
 }
