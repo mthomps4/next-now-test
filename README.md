@@ -1,8 +1,8 @@
-# Up and Running with Next Now TypeORM 
+# Up and Running with Next Now TypeORM
 
 ## What’s this for?!
 
-This repo is a working example of Now/Next at scale. Using GitLab (soon GitHub Actions) see how to configure Now/Next to create your teams workflow with the following environments: 
+This repo is a working example of Now/Next at scale. Using GitLab (soon GitHub Actions) see how to configure Now/Next to create your teams workflow with the following environments:
 
 - Local Development
 - Local Testing
@@ -21,115 +21,104 @@ This repo is a working example of Now/Next at scale. Using GitLab (soon GitHub A
 
 ## Running Locally
 
-**Pre Req**: 
+**Pre Req**:
 
 - Node v10.x
 - Yarn
 - Postgres (as of this writing 11.5)
 
-**Global Installs**: 
+**Global Installs**:
 
 - `yarn add —global ts-node typescript now`
 
 **Now:
 
-This installs Nows cli tools. We will use these to login, add secrets (envs), and deploy our application manually if needed. 
+This installs Nows cli tools. We will use these to login, add secrets (envs), and deploy our application manually if needed.
 
 **ts-node and typescript:
 
-Used in yarn scripts to run various commands with dotenv and TypeORM. Installing globally simplifies our yarn scripts, avoiding he need to dive into node_modules for each tool. 
+Used in yarn scripts to run various commands with dotenv and TypeORM. Installing globally simplifies our yarn scripts, avoiding he need to dive into node_modules for each tool.
 
 Example: `ts-node -r dotenv/config` VS `node_modules/ts-node/dist/bin.js -r dotenv/config`
 
-In the above example you would still need typescript installed globally. It’s easier IMO to install both. If you prefer not to install ts-node globally to manage versions feel free to update the yarn scripts accordingly. 
+In the above example you would still need typescript installed globally. It’s easier IMO to install both. If you prefer not to install ts-node globally to manage versions feel free to update the yarn scripts accordingly.
 
-**Dependencies:** 
+**Dependencies:**
 
 Run `yarn`
 
-**Setup**: 
+**Setup**:
 
 Run `yarn setup` or `ts-node setup/index.ts`
 
-This will create two databases for local development. 
+This will create two databases for local development.
 
 `next_now_dev` and `next_now_test`
 
 Migrations and Seeds:
 
-TODO 
+TODO
 
 ## Environments
+### Local
+root `.env`: This ENV file is for your local development
+Running with `yarn dev` or `now dev` will run locally pointed to `next_now_dev`
 
-All ENVs are kept within `.env/`
+### Testing
+root `.env.test`: This ENV file is for your local test environment
+Running `yarn test` will run jest pointing to db_name `next_now_test`
 
-There is an example file for each with a readme describing more in depth (TODO LINK HERE) 
+### Deployed Environments
+All other ENV are kept within `env/`
+There is an example file for each with a [readme](env/README.md) describing more in depth
 
 <details>
 <summary>
-Local Development 
+Local
 </summary>
     Local DB: `now_next_dev`
 
-    ENV: `.env/.env.local`
+    ENV: `.env`
 
-    Ran with `now dev`(TODO) or `yarn start` this environment is setup to look at `.env/.env.local`. This connects to your machines local Postgres using your personal credentials. 
+    Ran with `now dev` or `yarn dev` this environment is setup to look at `.env`. This connects to your machines local Postgres using your personal credentials.
 
-    yarn scripts are also also set to point at this env for TypeORM helpers. 
+    yarn scripts are also also set to point at this env for TypeORM helpers.
 
     Example: `yarn db:migrate`
 </details>
 
 <details>
 <summary>
-Local Testing 
+Testing
 </summary>
 
     Local DB: `next_now_test`
 
-    ENV: `.env/.env.test.local`
+    ENV: `.env.test`
 
-    Ran with `yarn test` this will connect to your local DB. Jest is setup to run a setup test first to ensure you are connected to the right DB. Jest is also setup to run migrations and reset between each test file and run. 
+    Ran with `yarn test` this will connect to your local DB. Jest is setup to run a setup test first to ensure you are connected to the right DB. Jest is also setup to run migrations and reset between each test file and run.
 </details>
 
-Deployed Environments: 
+Deployed Environments:
 
 <details>
 <summary>
-Testing
+Development
 </summary>
 
-    DB: AWS RDS (testing)
-
-    ENV: `.env/.env.test`
-
-    A test DB is setup for CI to interact with.
-
-    I feel this helps troubleshoot and test remote connection issues while running your normal testing suite. I’m still open here: I may re-opt for a CI Postgres image instead. 
-
-    Similar to .test.local These ENVs are set to sync the DB by running migrations in between each test run.
-
-    The env file itself allows for a quick reset should something land in a weird state with CI by running `yarn db:reset:testing`
-</details>
-
-<details>
-<summary>
-Development 
-</summary>
-
-    DB: AWS RDS (development) 
+    DB: AWS RDS (development)
 
     ENV: `.env/.env.development`
 
     NOW: `now.json`
 
-    ENVs are setup within `now.json`and `now secret`. Now will create a uniq deploy per branch using the Dev DB credentials. 
+    ENVs are setup within `now.json`and `now secret`. Now will create a uniq deploy per branch using the Dev DB credentials.
 
-    The Development environment gives your developers a chance to see their code live and deployed with “real data”. This also lends a DB environment To test DB migrations and relations as your data models change and expand. 
+    The Development environment gives your developers a chance to see their code live and deployed with “real data”. This also lends a DB environment To test DB migrations and relations as your data models change and expand.
 
     ** Note: while Now deploys your branch to a uniq url. All branches are still pointed to the same DB. The Dev DB will always be in a state of transition while your team continues to build and test. As with anything communication is key. I’ve included yarn scripts specifically for dev to help, reset, migrate, and re-seed.
 
-    Example: 
+    Example:
 
     `yarn db:migrate:dev`
 
@@ -143,7 +132,7 @@ Development
 Staging
 </summary>
 
-    DB: AWS RDS (staging) 
+    DB: AWS RDS (staging)
 
     ENV: `.env/.env.staging`
 
@@ -166,7 +155,7 @@ Staging
 Production
 </summary>
 
-    DB: AWS RDS (prod) 
+    DB: AWS RDS (prod)
 
     ENV: `.env/.env.prod`
 
@@ -178,6 +167,6 @@ Production
 
     *Note:* due to the way Now deploys branch updates `...git-master.now.sh` will still point to `Development`
 
-    Prod is PROD! 
+    Prod is PROD!
     If something is wrong here... You're probably reading the wrong document. Go put out some fires and squash some bugs...
 </details>

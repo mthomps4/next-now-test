@@ -7,6 +7,8 @@ export default async (req: NowRequest, res: NowResponse) => {
   const connection = await initializeDatabase();
   const userRepo = await getRepository(User);
 
+  console.log('HERE');
+
   // const {
   //   query: { name }
   // } = req;

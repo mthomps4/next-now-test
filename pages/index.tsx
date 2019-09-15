@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Head from '../components/head';
 import Nav from '../components/nav';
+import { User } from '../entities/User';
 const Home = () => {
   const [date, setDate] = useState(null);
 
@@ -36,6 +37,18 @@ const Home = () => {
     getDate();
   }, []);
 
+  const [users, setUsers] = useState(null);
+
+  useEffect(() => {
+    async function getUsers() {
+      const res = await fetch('/api/users/list');
+      const users = await res.json();
+      console.log(users);
+      setDate(users);
+    }
+    getUsers();
+  }, []);
+
   return (
     <div>
       <Head title="Home" />
@@ -61,6 +74,19 @@ const Home = () => {
             <span className="loading" />
           )}
         </p>
+
+        <div>
+          <h3>Users:</h3>
+          <ol>
+            {users ? (
+              users.map((user: User) => {
+                <li>{user.firstName}</li>;
+              })
+            ) : (
+              <li> No Users Found</li>
+            )}
+          </ol>
+        </div>
 
         <div className="row">
           <Link href="https://github.com/zeit/next.js#getting-started">

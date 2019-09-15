@@ -63,6 +63,7 @@
     "node": "10.x"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.6.0",
     "@babel/preset-typescript": "^7.3.3",
     "@now/node": "^0.12.5",
     "@types/chance": "^1.0.6",
