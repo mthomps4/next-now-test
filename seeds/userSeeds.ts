@@ -8,7 +8,7 @@ export const seed = async (): Promise<any> => {
   const users = [];
 
   const admin = {
-    email: chance.email({ domain: 'admin.com' }),
+    email: chance.email({ domain: 'adminTest.com' }),
     role: ALLOWED_ROLES.ADMIN,
     firstName: chance.first(),
     lastName: chance.last(),
@@ -16,7 +16,7 @@ export const seed = async (): Promise<any> => {
   };
 
   const speaker = {
-    email: chance.email({ domain: 'speaker.com' }),
+    email: chance.email({ domain: 'speakerTest.com' }),
     role: ALLOWED_ROLES.SPEAKER,
     firstName: chance.first(),
     lastName: chance.last(),
@@ -24,7 +24,7 @@ export const seed = async (): Promise<any> => {
   };
 
   const editor = {
-    email: chance.email({ domain: 'editor.com' }),
+    email: chance.email({ domain: 'editorTest.com' }),
     role: ALLOWED_ROLES.EDITOR,
     firstName: chance.first(),
     lastName: chance.last(),
@@ -32,7 +32,7 @@ export const seed = async (): Promise<any> => {
   };
 
   const viewer = {
-    email: chance.email({ domain: 'speaker.com' }),
+    email: chance.email({ domain: 'speakerTest.com' }),
     role: ALLOWED_ROLES.VIEWER,
     firstName: chance.first(),
     lastName: chance.last(),
