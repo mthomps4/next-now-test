@@ -28,6 +28,7 @@
     "db:revert:dev": "yarn typeorm:dev migration:revert",
     "db:revert:staging": "yarn typeorm:staging migration:revert",
     "db:revert:prod": "yarn typeorm:prod migration:revert",
+    "db:seed": "yarn hygen seed run",
     "db:seeds:up": "yarn local seeds/local/seedsUp.ts",
     "typeorm:local": "yarn local ./node_modules/typeorm/cli.js",
     "typeorm:local:testing": "yarn local:testing ./node_modules/typeorm/cli.js",
@@ -48,6 +49,7 @@
   },
   "dependencies": {
     "dotenv": "^8.1.0",
+    "hygen": "^4.0.9",
     "next": "^9.0.2",
     "now": "^16.1.2",
     "pg": "^7.12.1",
