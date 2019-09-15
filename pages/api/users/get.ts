@@ -1,14 +1,21 @@
 import { NowRequest, NowResponse } from '@now/node';
+import { getRepository } from 'typeorm';
+import { User } from '../../../entities/User';
+import { initializeDatabase } from '../../../initializers/database';
 
-const users = [{ name: 'Matt', email: 'm@m.com' }, { name: 'Em', email: 'em@m.com' }];
-export default (req: NowRequest, res: NowResponse) => {
-  const {
-    query: { name }
-  } = req;
-  console.log(name);
+export default async (req: NowRequest, res: NowResponse) => {
+  const connection = await initializeDatabase();
+  const userRepo = await getRepository(User);
+
+  // const {
+  //   query: { name }
+  // } = req;
+
   // const {
   //   body: { name }
   // } = req;
-  const foundUsers = users.filter(user => user.name == name);
-  return res.json({ foundUsers });
+
+  const user = await userRepo.findOne();
+  await connection.close();
+  return res.json({ user });
 };

@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import { Connection, createConnection, getConnectionOptions } from 'typeorm';
-import console = require('console');
 
 export const initializeDatabase = async (optionOverrides: Record<string, any> = {}): Promise<Connection> => {
   const connectionOptions = await getConnectionOptions();

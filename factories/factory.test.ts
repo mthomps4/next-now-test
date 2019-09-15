@@ -1,7 +1,7 @@
 import { closeDB, connectDB, resetDB } from '../test/helpers';
 import { UserFactory } from './User';
 
-describe('Can Use Factory', () => {
+describe('Can Use factories', () => {
   beforeAll(async done => {
     await connectDB();
     done();
@@ -17,7 +17,7 @@ describe('Can Use Factory', () => {
     done();
   });
 
-  it('Can insert user with Factory', async () => {
+  it('Can insert User with Factory', async () => {
     const user = await UserFactory.create({ email: 'test@email.com' });
 
     expect(user.id).toBeTruthy();
