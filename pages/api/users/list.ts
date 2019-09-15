@@ -5,6 +5,9 @@ import { initializeDatabase } from '../../../initializers/database';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const connection = await initializeDatabase();
+
+  console.log(connection);
+
   const userRepo = await getRepository(User);
 
   console.log('HERE');

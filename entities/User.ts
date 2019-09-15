@@ -28,7 +28,7 @@ export class User {
   public lastName!: string | null;
 
   @Index({ unique: true })
-  @Column()
+  @Column({ type: 'varchar' })
   public email!: string;
 
   @Column({ type: 'varchar', nullable: true })
