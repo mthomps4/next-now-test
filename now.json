@@ -9,8 +9,6 @@
     "TYPEORM_PASSWORD": "@dev_db_password",
     "TYPEORM_DATABASE": "@dev_db_database",
     "TYPEORM_PORT": "@dev_db_port",
-    "TYPEORM_SYNCHRONIZE": false,
-    "TYPEORM_LOGGING": true,
     "TYPEORM_ENTITIES": "entities/**/*.ts",
     "TYPEORM_MIGRATIONS": "migrations/**/*.ts",
     "TYPEORM_ENTITIES_DIR": "entities",

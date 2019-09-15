@@ -10,8 +10,6 @@
     "TYPEORM_PASSWORD": "@staging_db_password",
     "TYPEORM_DATABASE": "@staging_db_database",
     "TYPEORM_PORT": "@staging_db_port",
-    "TYPEORM_SYNCHRONIZE": false,
-    "TYPEORM_LOGGING": true,
     "TYPEORM_ENTITIES": "entities/**/*.ts",
     "TYPEORM_MIGRATIONS": "migrations/**/*.ts",
     "TYPEORM_ENTITIES_DIR": "entities",
