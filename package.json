@@ -1,7 +1,6 @@
 {
   "name": "test-now-next-app",
   "scripts": {
-    "go": "now dev",
     "dev": "next",
     "build": "next build",
     "start": "next start",

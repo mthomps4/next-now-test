@@ -5,12 +5,7 @@ import { initializeDatabase } from '../../initializers/database';
 
 export default async (_req: NowRequest, res: NowResponse) => {
   const connection = await initializeDatabase();
-
-  console.log(connection);
-
   const userRepo = await getRepository(User);
-
-  console.log('HERE');
 
   // const {
   //   query: { name }
@@ -20,7 +15,7 @@ export default async (_req: NowRequest, res: NowResponse) => {
   //   body: { name }
   // } = req;
 
-  const user = await userRepo.find();
+  const users = await userRepo.find();
   await connection.close();
-  return res.json({ user });
+  return res.json({ users });
 };
