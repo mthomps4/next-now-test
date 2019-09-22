@@ -8,9 +8,7 @@ test('Returns Correct Test Credentials', () => {
   const testDbName = process.env.TYPEORM_DATABASE || 'NO ENV';
   const appEnv = process.env.APP_ENV || 'NO APP ENV FOUND';
 
-  if (appEnv === 'TESTING SERVER') {
-    expect(testDbName).toEqual('testing');
-  } else if (appEnv === 'LOCAL TESTING') {
+  if (appEnv === 'TESTING SERVER' || appEnv === 'LOCAL TESTING') {
     expect(testDbName).toEqual('next_now_test');
   } else {
     throw new Error('TEST ENV FILE NOT SORUCED');
