@@ -26,17 +26,6 @@ const Home = () => {
     getDate();
   }, []);
 
-  const [dbUrl, setDbUrl] = useState(null);
-
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/dbUrl');
-      const dbUrl = await res.json();
-      setDbUrl(dbUrl);
-    }
-    getDate();
-  }, []);
-
   const [users, setUsers] = useState(null);
 
   useEffect(() => {
@@ -44,7 +33,7 @@ const Home = () => {
       const res = await fetch('/api/users/list');
       const users = await res.json();
       console.log(users);
-      setDate(users);
+      setUsers(users);
     }
     getUsers();
   }, []);

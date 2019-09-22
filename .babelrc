@@ -1,10 +1,24 @@
 {
   "presets": [
-    "next/babel"
+    "next/babel",
+    "@zeit/next-typescript/babel"
   ],
   "plugins": [
-    ["@babel/plugin-proposal-decorators", {
-      "legacy": true
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    ["@babel/plugin-proposal-class-properties", {
+      "loose": true
     }]
   ]
 }

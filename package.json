@@ -2,6 +2,7 @@
   "name": "test-now-next-app",
   "scripts": {
     "go": "now dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "test": "jest test/setup/setup-check.test.ts && jest",
@@ -43,6 +44,8 @@
     "ci:deploy:prod": "now -A prod.now.json --target=production --token=$NOW_TOKEN --scope=mthomps4 && now alias -A prod.now.json  --token=$NOW_TOKEN"
   },
   "dependencies": {
+    "@types/next": "^8.0.6",
+    "@types/styled-jsx": "^2.2.8",
     "axios": "^0.19.0",
     "dotenv": "^8.1.0",
     "hygen": "^4.0.9",
@@ -59,6 +62,8 @@
     "node": "10.x"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "@babel/preset-typescript": "^7.3.3",
     "@now/node": "^0.12.5",
@@ -67,7 +72,9 @@
     "@types/express": "^4.17.1",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.4",
+    "@types/react": "^16.9.2",
     "@types/styled-components": "^4.1.18",
+    "@zeit/next-typescript": "^1.1.1",
     "babel-plugin-styled-components": "^1.10.6",
     "chance": "^1.1.0",
     "express": "^4.17.1",
@@ -75,6 +82,6 @@
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
-    "typescript": "^3.6.2"
+    "typescript": "^3.6.3"
   }
 }

@@ -1,9 +1,9 @@
 import { NowRequest, NowResponse } from '@now/node';
 import { getRepository } from 'typeorm';
-import { User } from '../../../entities/User';
-import { initializeDatabase } from '../../../initializers/database';
+import { User } from '../../entities/User';
+import { initializeDatabase } from '../../initializers/database';
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async (_req: NowRequest, res: NowResponse) => {
   const connection = await initializeDatabase();
 
   console.log(connection);
