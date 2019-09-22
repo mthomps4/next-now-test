@@ -1,8 +1,7 @@
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Head from '../components/head';
 import Nav from '../components/nav';
-
+import { User } from '../entities/User';
 const Home = () => {
   const [date, setDate] = useState(null);
 
@@ -26,15 +25,15 @@ const Home = () => {
     getDate();
   }, []);
 
-  const [dbUrl, setDbUrl] = useState(null);
+  const [users, setUsers] = useState(null);
 
   useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/dbUrl');
-      const dbUrl = await res.json();
-      setDbUrl(dbUrl);
+    async function getUsers() {
+      const res = await fetch('/api/users');
+      const { users } = await res.json();
+      setUsers(users);
     }
-    getDate();
+    getUsers();
   }, []);
 
   return (
@@ -44,15 +43,8 @@ const Home = () => {
 
       <div className="hero">
         <h1 className="title">Welcome to {appEnv}!</h1>
-        <h1 className="title">TESTING THIS DEPLOY TO {appEnv} ONLY</h1>
-        <p>Update from the Testing Branch...</p>
 
-        <p className="description">
-          To get started, edit the <code>pages/index.js</code> or <code>pages/api/date.js</code> files, then save to
-          reload.
-        </p>
-
-        <p className="row date">
+        <p className="date">
           The date is:&nbsp;{' '}
           {date ? (
             <span>
@@ -63,27 +55,28 @@ const Home = () => {
           )}
         </p>
 
-        <div className="row">
-          <Link href="https://github.com/zeit/next.js#getting-started">
-            <a className="card">
-              <h3>Getting Started &rarr;</h3>
-              <p>Learn more about Next on Github and in their examples</p>
-            </a>
-          </Link>
-          <Link href="https://open.segment.com/create-next-app">
-            <a className="card">
-              <h3>Examples &rarr;</h3>
-              <p>
-                Find other example boilerplates on the <code>create-next-app</code> site
-              </p>
-            </a>
-          </Link>
-          <Link href="https://github.com/segmentio/create-next-app">
-            <a className="card">
-              <h3>Create Next App &rarr;</h3>
-              <p>Was this tool helpful? Let us know how we can improve it</p>
-            </a>
-          </Link>
+        <div className="users">
+          <div>
+            <h3>Users:</h3>
+            <div className="row">
+              {users ? (
+                <>
+                  {users.map((user: User) => (
+                    <div className="card">
+                      <span className="label">Name:</span>
+                      <p>
+                        {user.firstName} {user.lastName}
+                      </p>
+                      <span className="label">Email</span>
+                      <p>{user.email}</p>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <p>No Users Found.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -95,20 +88,12 @@ const Home = () => {
         .title {
           margin: 0;
           width: 100%;
-          padding-top: 80px;
           line-height: 1.15;
           font-size: 48px;
         }
         .title,
         .description {
           text-align: center;
-        }
-        .row {
-          max-width: 880px;
-          margin: 80px auto 40px;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
         }
         .date {
           height: 24px;
@@ -140,11 +125,22 @@ const Home = () => {
           background-size: 200% 200%;
           animation: Loading 2s ease infinite;
         }
+        .users {
+          display: flex;
+          justify-content: center;
+          margin: 2em;
+        }
+        .row {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          justify-content:space-between;
+        }
         .card {
-          padding: 18px 18px 24px;
-          width: 220px;
-          text-align: left;
-          text-decoration: none;
+          padding: 1em;
+          margin: 1em;
+          width: 35%;
           color: #434343;
           border: 1px solid #9b9b9b;
         }
@@ -157,10 +153,13 @@ const Home = () => {
           font-size: 18px;
         }
         .card p {
-          margin: 0;
-          padding: 12px 0 0;
-          font-size: 13px;
-          color: #333;
+          color: #777;
+        }
+        .card .label {
+          font-weight: bold;
+          color: #777;
+          margin:0;
+          padding:0;
         }
       `}</style>
     </div>

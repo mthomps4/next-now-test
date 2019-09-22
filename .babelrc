@@ -1,0 +1,26 @@
+{
+  "presets": [
+    "next/babel",
+    "@zeit/next-typescript/babel"
+  ],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    ["@babel/plugin-proposal-class-properties", {
+      "loose": true
+    }]
+  ]
+}
+// https://github.com/babel/babel/issues/7373
+// https://medium.com/@selvaganesh93/setup-next-js-with-typescript-integration-dece94e43cf5
