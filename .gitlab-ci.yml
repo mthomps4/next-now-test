@@ -31,6 +31,7 @@ connect:
 
 stages:
   - connect
+  - deps
   - test
   - deploy
 
@@ -42,6 +43,11 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
+
+get-deps:
+  stage: deps
+  script:
+    - yarn
 
 run-unit-test:
   stage: test
