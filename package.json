@@ -32,11 +32,11 @@
     "typeorm:dev": "yarn development ./node_modules/typeorm/cli.js",
     "typeorm:staging": "yarn staging ./node_modules/typeorm/cli.js",
     "typeorm:prod": "yarn production ./node_modules/typeorm/cli.js",
-    "local": "DOTENV_CONFIG_PATH=./.env ts-node -r dotenv/config",
-    "local:testing": "DOTENV_CONFIG_PATH=./.env.test ts-node -r dotenv/config",
-    "development": "DOTENV_CONFIG_PATH=./env/.env.development ts-node -r dotenv/config",
-    "staging": "DOTENV_CONFIG_PATH=./env/.env.staging ts-node -r dotenv/config ",
-    "production": "DOTENV_CONFIG_PATH=./env/.env.prod ts-node -r dotenv/config",
+    "local": "DOTENV_CONFIG_PATH=./.env ts-node -P ./tsconfig.yarn.json -r dotenv/config",
+    "local:testing": "DOTENV_CONFIG_PATH=./.env.test ts-node -P ./tsconfig.yarn.json -r dotenv/config",
+    "development": "DOTENV_CONFIG_PATH=./env/.env.development ts-node -P ./tsconfig.yarn.json -r dotenv/config",
+    "staging": "DOTENV_CONFIG_PATH=./env/.env.staging ts-node -P ./tsconfig.yarn.json -r dotenv/config ",
+    "production": "DOTENV_CONFIG_PATH=./env/.env.prod ts-node -P ./tsconfig.yarn.json -r dotenv/config",
     "deploy:staging": "now -A staging.now.json --target=staging --scope=mthomps4 && now alias -A staging.now.json",
     "deploy:prod": "now -A prod.now.json --target=production --scope=mthomps4 && now alias -A prod.now.json",
     "ci:deploy:staging": "now -A staging.now.json --target=staging --token=$NOW_TOKEN --scope=mthomps4  && now alias -A staging.now.json  --token=$NOW_TOKEN",
@@ -79,7 +79,7 @@
     "jest": "^24.9.0",
     "supertest": "^4.0.2",
     "ts-jest": "^24.1.0",
-    "ts-node": "^8.3.0",
+    "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
   }
 }
