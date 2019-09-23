@@ -1,6 +1,11 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
+import http from 'http';
+import { apiResolver } from 'next-server/dist/server/api-utils';
+import listen from 'test-listen';
 import { User } from '../entities/User';
 import { UserFactory } from '../factories/User';
+import queryUsers from '../pages/api/users';
+// import queryUsers from '../pages/api/users';
 import { closeDB, connectDB, resetDB } from './helpers';
 
 describe('Get User Tests', () => {
@@ -47,20 +52,21 @@ describe('Get User Tests', () => {
 
   it('Can Get User', async () => {
     const user = await UserFactory.create({ email: 'test@email.com' });
-
+    let requestHandler = (req, res) => apiResolver(req, res, undefined, queryUsers);
+    let server = http.createServer(requestHandler);
+    let url = await listen(server);
+    console.log(url);
     const [queriedUser, errors] = await axios
-      .get('/api/users/get')
+      .get('/api/users')
       .then(handleUserResponse)
       .catch(handleError);
 
     console.log(errors, queriedUser);
 
-    // const res = await request(nextApi).get('/api/users/get');
-
-    // console.log(res);
-
-    // expect(res).toBeNull();
-    expect(queriedUser.firstName).toEqual(user.firstName);
-    expect(errors).toBeNull();
+    // let response = await fetch(url);
+    // let json = await response.json();
+    // expect(response.status).toBe(200);
+    // expect(json).toEqual({ users: [user] });
+    expect(queryUsers).toEqual([user]);
   });
 });
