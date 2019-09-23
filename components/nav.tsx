@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
 
-const links = [{ key: '1', href: 'https://github.com/segmentio/create-next-app', label: 'Github' }].map(link => {
+const links = [
+  { key: '1', href: 'https://github.com/mthomps4/next-now-test', label: 'Github' },
+  { key: '2', href: '/api/appEnv', label: 'api/appEnv' },
+  { key: '3', href: '/api/date', label: 'api/date' },
+  { key: '4', href: '/api/users', label: 'api/users' }
+].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
 });

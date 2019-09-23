@@ -1,4 +1,4 @@
-export default (req, res) => {
+export default (_req, res) => {
   const date = new Date()
     .toISOString()
     .replace(/T/, ' ')
