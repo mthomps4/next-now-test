@@ -1,17 +1,24 @@
 const express = require('express');
 const next = require('next/');
+import userHandler from '../pages/api/users';
 
-const app = next({ dev: true });
-const handle = app.getRequestHandler();
+export default async () => {
+  const app = next({ dev: true });
+  const handle = app.getRequestHandler();
 
-app.prepare().then(() => {
-  const server = express();
+  const server = await app.prepare().then(() => {
+    const server = express();
 
-  server.get('*', (req, res) => {
-    handle(req, res);
+    server.get('/api/users', userHandler);
+
+    server.get('*', (req, res) => {
+      handle(req, res);
+    });
+    server.listen(3000);
   });
-  server.listen(3000);
-});
+
+  return server;
+};
 
 // import http from 'http'
 // import listen from 'test-listen'
