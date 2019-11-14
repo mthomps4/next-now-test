@@ -3,16 +3,6 @@
   "version": 2,
   "alias": ["staging-next-now-test.now.sh"],
   "env": {
-    "APP_ENV": "STAGING",
-    "TYPEORM_CONNECTION": "postgres",
-    "TYPEORM_HOST": "@staging_db_host",
-    "TYPEORM_USERNAME": "@staging_db_user",
-    "TYPEORM_PASSWORD": "@staging_db_password",
-    "TYPEORM_DATABASE": "@staging_db_database",
-    "TYPEORM_PORT": "@staging_db_port",
-    "TYPEORM_ENTITIES": "entities/**/*.ts",
-    "TYPEORM_MIGRATIONS": "migrations/**/*.ts",
-    "TYPEORM_ENTITIES_DIR": "entities",
-    "TYPEORM_MIGRATIONS_DIR": "migrations"
+    "APP_ENV": "STAGING"
   }
 }

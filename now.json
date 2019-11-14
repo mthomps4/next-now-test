@@ -2,16 +2,6 @@
   "name": "next-now-test",
   "version": 2,
   "env": {
-    "APP_ENV": "DEVELOPMENT",
-    "TYPEORM_CONNECTION": "postgres",
-    "TYPEORM_HOST": "@dev_db_host",
-    "TYPEORM_USERNAME": "@dev_db_user",
-    "TYPEORM_PASSWORD": "@dev_db_password",
-    "TYPEORM_DATABASE": "@dev_db_database",
-    "TYPEORM_PORT": "@dev_db_port",
-    "TYPEORM_ENTITIES": "entities/**/*.ts",
-    "TYPEORM_MIGRATIONS": "migrations/**/*.ts",
-    "TYPEORM_ENTITIES_DIR": "entities",
-    "TYPEORM_MIGRATIONS_DIR": "migrations"
+    "APP_ENV": "DEVELOPMENT"
   }
 }

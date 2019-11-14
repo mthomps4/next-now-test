@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Head from '../components/head';
 import Nav from '../components/nav';
-import { User } from '../entities/User';
 const Home = () => {
   const [date, setDate] = useState(null);
 
@@ -17,23 +16,12 @@ const Home = () => {
   const [appEnv, setAppEnv] = useState(null);
 
   useEffect(() => {
-    async function getDate() {
+    async function getAppEnv() {
       const res = await fetch('/api/appEnv');
       const { appEnv } = await res.json();
       setAppEnv(appEnv);
     }
-    getDate();
-  }, []);
-
-  const [users, setUsers] = useState(null);
-
-  useEffect(() => {
-    async function getUsers() {
-      const res = await fetch('/api/users');
-      const { users } = await res.json();
-      setUsers(users);
-    }
-    getUsers();
+    getAppEnv();
   }, []);
 
   return (
@@ -54,30 +42,6 @@ const Home = () => {
             <span className="loading" />
           )}
         </p>
-
-        <div className="users">
-          <div>
-            <h3>Users:</h3>
-            <div className="row">
-              {users ? (
-                <>
-                  {users.map((user: User) => (
-                    <div className="card">
-                      <span className="label">Name:</span>
-                      <p>
-                        {user.firstName} {user.lastName}
-                      </p>
-                      <span className="label">Email</span>
-                      <p>{user.email}</p>
-                    </div>
-                  ))}
-                </>
-              ) : (
-                <p>No Users Found.</p>
-              )}
-            </div>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`

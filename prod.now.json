@@ -3,16 +3,6 @@
   "version": 2,
   "alias": ["production-next-now-test.now.sh"],
   "env": {
-    "APP_ENV": "PRODUCTION",
-    "TYPEORM_CONNECTION": "postgres",
-    "TYPEORM_HOST": "@prod_db_host",
-    "TYPEORM_USERNAME": "@prod_db_user",
-    "TYPEORM_PASSWORD": "@prod_db_password",
-    "TYPEORM_DATABASE": "@prod_db_database",
-    "TYPEORM_PORT": "@prod_db_port",
-    "TYPEORM_ENTITIES": "entities/**/*.ts",
-    "TYPEORM_MIGRATIONS": "migrations/**/*.ts",
-    "TYPEORM_ENTITIES_DIR": "entities",
-    "TYPEORM_MIGRATIONS_DIR": "migrations"
+    "APP_ENV": "PRODUCTION"
   }
 }

@@ -1,42 +1,9 @@
 image: node:10.3.0
 
-services:
-  - postgres
-
-variables:
-  # Configure postgres service (https://hub.docker.com/_/postgres/)
-  POSTGRES_DB: $TYPEORM_DATABASE
-  POSTGRES_USER: $TYPEORM_USERNAME
-  POSTGRES_PASSWORD: $TYPEORM_PASSWORD
-  TYPEORM_CONNECTION: $TYPEORM_CONNECTION
-  TYPEORM_DATABASE: $TYPEORM_DATABASE
-  TYPEORM_ENTITIES: $TYPEORM_ENTITIES
-  TYPEORM_ENTITIES_DIR: $TYPEORM_ENTITIES_DIR
-  TYPEORM_HOST: $TYPEORM_HOST
-  TYPEORM_MIGRATIONS: $TYPEORM_MIGRATIONS
-  TYPEORM_HOST: $TYPEORM_HOST
-  TYPEORM_MIGRATIONS: $TYPEORM_MIGRATIONS
-  TYPEORM_PASSWORD: $TYPEORM_PASSWORD
-  TYPEORM_PORT: $TYPEORM_PORT
-  TYPEORM_USERNAME: $TYPEORM_USERNAME
-
-
-connect:
-  stage: connect
-  image: postgres
-  script:
-    # official way to provide password to psql: http://www.postgresql.org/docs/9.3/static/libpq-envars.html
-    - export PGPASSWORD=$POSTGRES_PASSWORD
-    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
-
 stages:
-  - connect
   - deps
   - test
   - deploy
-
-# before_script:
-#   - yarn
 
 # Cache modules in between jobs
 cache:
