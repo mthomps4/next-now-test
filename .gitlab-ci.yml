@@ -2,7 +2,7 @@ image: node:10.3.0
 
 stages:
   - deps
-  - test
+  # - test
   - deploy
 
 # before_script:
