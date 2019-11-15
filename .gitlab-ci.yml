@@ -1,8 +1,8 @@
 image: node:10.3.0
 
+# - test
 stages:
   - deps
-  # - test
   - deploy
 
 # before_script:
