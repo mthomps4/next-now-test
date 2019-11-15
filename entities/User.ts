@@ -21,6 +21,11 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   public id!: string;
 
+  @BeforeInsert()
+  addId() {
+    this.id = v4();
+  }
+
   @Column({ type: 'varchar', nullable: true })
   public firstName!: string | null;
 
@@ -47,10 +52,6 @@ export class User {
   @UpdateDateColumn()
   public updatedAt!: Date;
 
-  @BeforeInsert()
-  addId() {
-    this.id = v4();
-  }
   // async hashPassword() {
   //   this.password = await bcrypt.hash(this.password, 10);
   // }
