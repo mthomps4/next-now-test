@@ -2,7 +2,7 @@
 
 ## What’s this for?!
 
-This repo is a working example of Now/Next at scale. Using GitLab (soon GitHub Actions) see how to configure Now/Next to create your teams workflow with the following environments:
+This repo is a working example of Now/Next with multiple environments. Using CI/CD see how to configure Now/Next to create your teams workflow with the following environments:
 
 - Local Development
 - Local Testing

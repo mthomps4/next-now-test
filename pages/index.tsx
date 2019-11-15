@@ -73,7 +73,8 @@ const Home = () => {
                   ))}
                 </>
               ) : (
-                <p>No Users Found.</p>
+                  <p>No Users Found.</p>
+                  <i>**I've removed my Postgres instnace from AWS to avoid cost.</i>
               )}
             </div>
           </div>
