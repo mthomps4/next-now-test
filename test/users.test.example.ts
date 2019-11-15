@@ -26,14 +26,6 @@ describe('Get User Tests', () => {
     return [response.data, null];
   };
 
-  // const handleResponse = (response: AxiosResponse) => {
-  //   console.log(response.data);
-  //   console.log(response.status);
-  //   console.log(response.statusText);
-  //   console.log(response.headers);
-  //   console.log(response.config);
-  // };
-
   const handleError = (error: AxiosError): [null, AxiosError] => {
     if (error.response) {
       console.log(error.response.data);
@@ -59,7 +51,6 @@ describe('Get User Tests', () => {
 
     // console.log(res);
 
-    // expect(res).toBeNull();
     expect(queriedUser.firstName).toEqual(user.firstName);
     expect(errors).toBeNull();
   });

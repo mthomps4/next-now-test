@@ -1,6 +1,8 @@
 {
   "name": "test-now-next-app",
+  "license": "MIT",
   "scripts": {
+    "now:dev": "now dev",
     "dev": "next",
     "build": "next build",
     "start": "next start",
@@ -34,9 +36,9 @@
     "typeorm:prod": "yarn production ./node_modules/typeorm/cli.js",
     "local": "DOTENV_CONFIG_PATH=./.env ts-node -P ./tsconfig.yarn.json -r dotenv/config",
     "local:testing": "DOTENV_CONFIG_PATH=./.env.test ts-node -P ./tsconfig.yarn.json -r dotenv/config",
-    "development": "DOTENV_CONFIG_PATH=./env/.env.development ts-node -P ./tsconfig.yarn.json -r dotenv/config",
-    "staging": "DOTENV_CONFIG_PATH=./env/.env.staging ts-node -P ./tsconfig.yarn.json -r dotenv/config ",
-    "production": "DOTENV_CONFIG_PATH=./env/.env.prod ts-node -P ./tsconfig.yarn.json -r dotenv/config",
+    "development": "DOTENV_CONFIG_PATH=.env.development ts-node -P ./tsconfig.yarn.json -r dotenv/config",
+    "staging": "DOTENV_CONFIG_PATH=.env.staging ts-node -P ./tsconfig.yarn.json -r dotenv/config ",
+    "production": "DOTENV_CONFIG_PATH=.env.prod ts-node -P ./tsconfig.yarn.json -r dotenv/config",
     "deploy:staging": "now -A staging.now.json --target=staging --scope=mthomps4 && now alias -A staging.now.json",
     "deploy:prod": "now -A prod.now.json --target=production --scope=mthomps4 && now alias -A prod.now.json",
     "ci:deploy:staging": "now -A staging.now.json --target=staging --token=$NOW_TOKEN --scope=mthomps4  && now alias -A staging.now.json  --token=$NOW_TOKEN",
