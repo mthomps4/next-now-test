@@ -19,10 +19,10 @@ get-deps:
   script:
     - yarn
 
-run-unit-test:
-  stage: test
-  script:
-    - yarn test
+# run-unit-test:
+#   stage: test
+#   script:
+#     - yarn test
 
 deploy-staging:
   stage: deploy
