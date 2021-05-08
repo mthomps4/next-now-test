@@ -54,7 +54,7 @@
     "react-dom": "^16.8.6",
     "reflect-metadata": "^0.1.13",
     "styled-components": "^4.3.2",
-    "typeorm": "^0.2.18"
+    "typeorm": "^0.2.25"
   },
   "engines": {
     "node": "10.x"
